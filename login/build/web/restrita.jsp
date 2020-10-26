@@ -16,11 +16,17 @@
     </head>
     <body>
         <%
+                String alert = (String) session.getAttribute("alert");
                 String nome = (String) session.getAttribute("nomeUsuario");
                 String disabled = "";                
                 if(nome == null){
                     disabled = "disabled";
                 }
+                if(alert != null){
+                out.print(alert);
+                alert = "";
+                }
+                
             %>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="https://www.linkedin.com/in/lucas-menezes-teixeira-79b7a51a2/" target="_blank">Lucas M. Teixeira</a>
@@ -131,18 +137,18 @@
                 <div class="row">
                       <div class="form-group col-md-4">
                         <label>Nome</label>
-                        <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome">
+                        <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome" required>
                       </div>
                       <div class="form-group col-md-8">
                         <label>Email</label>
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
                       </div>
                 </div>
                 
                 <div class="row">
                       <div class="form-group col-md-8">
                         <label>Senha</label>
-                        <input type="password" class="form-control" name="senha" id="senha" placeholder="Senha">
+                        <input type="password" class="form-control" name="senha" id="senha" placeholder="Senha" required>
                       </div>
                       <div class="form-group col-md-4">
                             <label>Nível</label>
